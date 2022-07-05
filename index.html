@@ -11,31 +11,65 @@
     
 </head>
 <body>
-    <div id="header">
-        <div id="logo">MyBookList</div>
-        <div id="addBook">
-            <div id="shadow"></div>
-            <button id="addButton">+</button>
+    <div id="modal" class="">
+        <form id="form">
+            <div id="bookInfoInput">
+                <div class="inputCont text">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title">
+                </div>
+
+                <div class="inputCont text">
+                    <label for="author">Author:</label>
+                    <input type="text" name="author" id="author">
+                </div>
+
+                <div class="inputCont text">
+                    <label for="pages">Pages:</label>
+                    <input type="number" name="pages" id="pages">
+                </div>
+            </div>
+
+            <div id="readInput" class="text">
+                <label for="read">Read</label>
+                <input type="checkbox" name="read" id="read">
+            </div>
+
+            <input id="submitButton" class="text" type="submit" value="Submit" onclick="getFormData()">
+        </form>
+    </div>
+
+    <div id="overlay" class=""></div>
+
+
+    <div id="main">
+        <div id="header">
+            <div id="logo">MyBookList</div>
+            <div id="addBook">
+                <div id="shadow"></div>
+                <button id="addButton">+</button>
+            </div>
+        </div>
+    
+        
+        <div id="books">
+            <div class="book">
+                <div class="info">
+                    <div class="text title">Title: </div>
+                    <div class="text author">Author: </div>
+                    <div class="text pages">Pages: </div>
+                </div>
+                <div class="readRemove">
+                    <div class="readCheck">
+                        <div class="text">Read</div>
+                        <div class="checkBox"></div>
+                    </div>
+                    <div class="remove"></div>
+                </div>  
+                
+            </div>
         </div>
     </div>
 
-    <!--give each book a data value that is i in the library array-->
-    <div id="books">
-        <div class="book">
-            <div class="info">
-                <div class="text title">Title: </div>
-                <div class="text author">Author: </div>
-                <div class="text pages">Pages: </div>
-            </div>
-            <div class="readRemove">
-                <div class="readCheck">
-                    <div class="text">Read</div>
-                    <div class="checkBox"></div>
-                </div>
-                <div class="remove"></div>
-            </div>  
-            
-        </div>
-    </div>
 </body>
 </html>

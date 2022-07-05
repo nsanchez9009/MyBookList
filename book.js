@@ -1,3 +1,17 @@
+const addBookButton = document.querySelector("#addButton");
+const modal = document.querySelector("#modal");
+const overlay = document.querySelector("#overlay");
+
+addBookButton.addEventListener("click", () => {
+    modal.classList.add("active");
+    overlay.classList.add("active");
+});
+
+overlay.addEventListener("click", () => {
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
 let library = [];
 
 function book(title, author, pages, read){

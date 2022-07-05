@@ -11,11 +11,118 @@
     --mainShadow: #93c5fd;
 }
 
-* {
+*::after *::before {
     box-sizing: border-box;
 }
 
-body {
+.text {
+    font-family: 'Mingzat', sans-serif;
+    font-size: 16px;
+}
+
+#modal {
+    background-color: var(--mainWhite);
+    border-radius: 5px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+
+    width: 300px;
+    padding: 30px 40px;
+
+    transition: .2s ease-in-out;
+}
+
+    #modal.active {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    #form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+
+        height: 100%;
+    }
+
+        #form .text {
+            font-size: 18px;
+        }
+
+        #bookInfoInput {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 20px;
+        }
+
+            .inputCont {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .inputCont input {
+                    width: 200px;
+                    height: 25px;
+                    padding: 5px 10px;
+                    
+                    background-color: #cfe2fa;
+                    border-radius: 5px;
+                    border: none;
+                }
+
+                    .inputCont input:hover {
+                        outline: 2px solid var(--mainShadow);
+                    }
+
+                    .inputCont input:focus {
+                        outline: 2px solid var(--mainBlue)
+                    }
+            
+        #submitButton {
+            background-color: var(--mainBlue);
+            color: var(--mainWhite);
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+
+            transition: all .1s ease-in-out;
+        }
+
+            #submitButton:hover {
+                background-color: #2051bd;
+            }
+
+            #submitButton:active {
+                transform: scale(.95);
+            }
+
+#overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 9;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    transition: .2s ease-in-out;
+}
+
+    #overlay.active {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+
+#main {
     background-color: #dbeafe;
     display: flex;
     flex-direction: column;
@@ -42,7 +149,6 @@ body {
         letter-spacing: 1px;
 
         color: var(--mainWhite);
-        
     }
 
     #addBook {
@@ -52,8 +158,6 @@ body {
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         grid-template-rows: repeat(10, 1fr);
-        
-
     }
         #shadow {
             background-color: #14275c;
@@ -75,7 +179,6 @@ body {
             border-radius: 2px;
 
             transition: all .1s ease-in-out;
-            
         }
 
             #addButton:hover {
@@ -86,11 +189,6 @@ body {
                 grid-column: 2 / 11;
                 grid-row: 2 / 11;
             }
-
-.text {
-    font-family: 'Mingzat', sans-serif;
-    font-size: 16px;
-}
 
 #books {
     height: calc(100vh - 114px);
