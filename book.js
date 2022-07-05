@@ -34,10 +34,7 @@ book.prototype.info = function () {
     return temp;
 }
 
-const title = prompt("Title: ");
-const author = prompt("Author: ");
-const pages = prompt("Number of pages: ");
-const read = prompt("Have you read this book? ");
+
 
 const theHobbit = new book(title, author, pages, read);
 

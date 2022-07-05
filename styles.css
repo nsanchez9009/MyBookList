@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Mingzat&display=swap');
+
+@font-face {
+    font-family: "AGRevueCyr";
+    src: url(./fonts/AGRevueCyr\ Roman\ Medium.ttf);
+}
+
+:root {
+    --mainWhite: #eff6ff;
+    --mainBlue: #2563eb;
+    --mainShadow: #93c5fd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #dbeafe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#header {
+    background-color: var(--mainBlue);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    filter: drop-shadow(0px 6px 0px var(--mainShadow));
+
+    height: 80px;
+    width: 100%;
+}
+
+    #logo {
+        font-family: "AGRevueCyr";
+        font-size: 40px;
+        letter-spacing: 1px;
+
+        color: var(--mainWhite);
+        
+    }
+
+    #addBook {
+        height: 59px;
+        width: 63px;
+
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        
+
+    }
+        #shadow {
+            background-color: #14275c;
+            border-radius: 2px;
+            grid-column: 2 / 11;
+            grid-row: 2 / 11;
+        }
+
+        #addButton {
+            grid-row: 1 / 10;
+            grid-column: 1 / 10;
+            font-family: 'Mingzat', sans-serif;
+            font-weight: bold;
+            font-size: 30px;   
+
+            background-color: var(--mainWhite);
+            color: var(--mainBlue);
+            border: none;
+            border-radius: 2px;
+
+            transition: all .1s ease-in-out;
+            
+        }
+
+            #addButton:hover {
+                background-color: #dbeafe;
+            }
+
+            #addButton:active {
+                grid-column: 2 / 11;
+                grid-row: 2 / 11;
+            }
+
+.text {
+    font-family: 'Mingzat', sans-serif;
+    font-size: 16px;
+}
+
+#books {
+    height: calc(100vh - 114px);
+    width: 70vw;
+    padding: 14px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    .book {
+        background-color: var(--mainWhite);
+        border-left: 10px solid var(--mainBlue);
+        border-radius: 5px;
+        filter: drop-shadow(6px 6px 0px #bfdbfe);
+
+        height: 200px;
+        width: 300px;
+        padding: 20px;
+
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+    }
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .readRemove {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+            .readCheck {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+                .checkBox {
+                    background-image: url(./icons/checkbox.png);
+                    background-size: cover;
+                    opacity: 80%;
+                    height: 20px;
+                    width: 20px;
+                }
+
+                    .checkBoxClicked {
+                        background-image: url(./icons/checkbox-marked.png);
+                    }
+        
+            .remove {
+                background-image: url(./icons/remove.png);
+                background-size: cover;
+                opacity: 80%;
+                height: 20px;
+                width: 20px;
+            }
+
+                .remove:hover {
+                    opacity: 100%;
+                }
