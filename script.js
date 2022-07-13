@@ -2,6 +2,7 @@ const addBookButton = document.querySelector("#addButton");
 const modal = document.querySelector("#modal");
 const overlay = document.querySelector("#overlay");
 const books = document.querySelector("#books");
+const form = document.querySelector("#form");
 const modalCheckBox = document.querySelector("#read");
 
 addBookButton.addEventListener("click", () => {
@@ -111,13 +112,22 @@ createBook.prototype.info = function() {
 }
 
 function getFormData() {
+    if (form.classList.contains("invalidInput")){
+        form.removeChild(form.lastChild);
+        form.classList.remove("invalidInput");
+    }
+
     const title = document.querySelector("#title")
     const author = document.querySelector("#author");
     const pages = document.querySelector("#pages");
     const read = document.querySelector("#read");
 
     if (title.value === "" || author.value === "" || pages.value === ""){
-        alert("Must fill all fields.");
+        const inputMessage = document.createElement("div");
+        inputMessage.classList.add("text");
+        form.classList.add("invalidInput");
+        inputMessage.textContent = "Must fill all fields."
+        form.appendChild(inputMessage);
         return;
     }
 
@@ -125,6 +135,6 @@ function getFormData() {
     library.push(book);
     console.log(library);
 
-    document.querySelector("#form").reset();
+    form.reset();
 }
 
