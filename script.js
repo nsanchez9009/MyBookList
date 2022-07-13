@@ -82,10 +82,13 @@ createBook.prototype.info = function() {
     checkBox.addEventListener("click", () => {
         if (checkBox.classList.contains("checkBoxClicked")) {
             checkBox.classList.remove("checkBoxClicked");
-            //Change the value in the array eventually.
+            this.read = "no";
+            console.log(library);
         }
         else {
             checkBox.classList.add("checkBoxClicked");
+            this.read = "yes";
+            console.log(library);
         }
     });
 
