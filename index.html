@@ -7,7 +7,7 @@
     <title>MyBookList</title>
     <link rel="stylesheet" href="./normalize.css">
     <link rel="stylesheet" href="./styles.css">
-    <script src="./book.js" defer></script>
+    <script src="./script.js" defer></script>
     
 </head>
 <body>
@@ -32,10 +32,10 @@
 
             <div id="readInput" class="text">
                 <label for="read">Read</label>
-                <input type="checkbox" name="read" id="read">
+                <input type="checkbox" value="no" name="read" id="read">
             </div>
 
-            <input id="submitButton" class="text" type="submit" value="Submit" onclick="getFormData()">
+            <input id="submitButton" class="text" type="submit" value="Submit" onclick="getFormData();return false">
         </form>
     </div>
 
@@ -53,21 +53,7 @@
     
         
         <div id="books">
-            <div class="book">
-                <div class="info">
-                    <div class="text title">Title: </div>
-                    <div class="text author">Author: </div>
-                    <div class="text pages">Pages: </div>
-                </div>
-                <div class="readRemove">
-                    <div class="readCheck">
-                        <div class="text">Read</div>
-                        <div class="checkBox"></div>
-                    </div>
-                    <div class="remove"></div>
-                </div>  
-                
-            </div>
+            
         </div>
     </div>
 
