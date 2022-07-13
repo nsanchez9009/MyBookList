@@ -97,7 +97,11 @@ createBook.prototype.info = function() {
 
     const removeButton = document.createElement("div");
     removeButton.classList.add("remove");
-    removeButton.addEventListener("click", () => books.removeChild(bookCard));
+    removeButton.addEventListener("click", () => {
+        books.removeChild(bookCard);
+        library.splice(library.indexOf(this), 1);
+        console.log(library);
+    });
     readRemove.appendChild(removeButton);
 
     books.appendChild(bookCard);
@@ -112,8 +116,15 @@ function getFormData() {
     const pages = document.querySelector("#pages");
     const read = document.querySelector("#read");
 
+    if (title.value === "" || author.value === "" || pages.value === ""){
+        alert("Must fill all fields.");
+        return;
+    }
+
     const book = new createBook(title.value, author.value, pages.value, read.value);
     library.push(book);
     console.log(library);
+
+    document.querySelector("#form").reset();
 }
 
