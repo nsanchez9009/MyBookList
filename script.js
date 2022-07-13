@@ -94,6 +94,7 @@ createBook.prototype.info = function() {
 
     const removeButton = document.createElement("div");
     removeButton.classList.add("remove");
+    removeButton.addEventListener("click", () => books.removeChild(bookCard));
     readRemove.appendChild(removeButton);
 
     books.appendChild(bookCard);
