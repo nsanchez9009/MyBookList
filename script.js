@@ -112,7 +112,7 @@ createBook.prototype.info = function() {
 
         console.log(library);
     });
-    
+
     readRemove.appendChild(removeButton);
 
     books.appendChild(bookCard);
@@ -134,10 +134,13 @@ function getFormData() {
 
     if (title.value === "" || author.value === "" || pages.value === ""){
         const inputMessage = document.createElement("div");
+
         inputMessage.classList.add("text");
         form.classList.add("invalidInput");
+
         inputMessage.textContent = "Must fill all fields."
         form.appendChild(inputMessage);
+
         return;
     }
 
@@ -146,5 +149,6 @@ function getFormData() {
     console.log(library);
 
     form.reset();
+    read.value = "no";
 }
 
