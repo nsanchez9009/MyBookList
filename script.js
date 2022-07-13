@@ -36,6 +36,10 @@ function createBook(title, author, pages, read) {
     this.info();
 }
 
+function removeBook(book) {
+    books.removeChild(book);
+}
+
 createBook.prototype.info = function() {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book");
@@ -98,11 +102,17 @@ createBook.prototype.info = function() {
 
     const removeButton = document.createElement("div");
     removeButton.classList.add("remove");
+
     removeButton.addEventListener("click", () => {
-        books.removeChild(bookCard);
+        bookCard.classList.add("deleted");
+
+        setTimeout(removeBook, 200, bookCard);
+
         library.splice(library.indexOf(this), 1);
+
         console.log(library);
     });
+    
     readRemove.appendChild(removeButton);
 
     books.appendChild(bookCard);

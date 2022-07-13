@@ -195,6 +195,21 @@ body {
                 grid-row: 2 / 11;
             }
 
+@keyframes slideIn {
+    from {
+        max-height: 0px;
+        transform: scale(0);
+        opacity: 0;
+    }
+    
+    to {
+        max-height: 1000px;
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
 #books {
     height: calc(100vh - 114px);
     width: 70vw;
@@ -219,7 +234,15 @@ body {
 
         display: grid;
         grid-template-rows: 2fr 1fr;
+
+        animation-duration: .2s;
+        animation-name: slideIn;
+        transition: all .2s ease-in-out;
     }
+        .book.deleted{
+            transform: scale(0);
+            opacity: 0;
+        }
 
         .info {
             display: flex;
